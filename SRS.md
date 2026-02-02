@@ -1,9 +1,14 @@
-# Specification document for the OIT Safety Tracker Project
+# Software Requirements Specification (SRS)
 
-## Overall description
+## 1. Project Overview
+The **ML-Allergen-Predictor** is a machine learning-based bioinformatics tool designed to assess the allergenic potential of novel protein sequences. Unlike alignment-based methods (e.g., BLAST) that look for exact sequence matches, this tool predicts allergenicity based on physicochemical properties (hydrophobicity, molecular weight, isoelectric point), allowing it to identify potential risks in novel proteins with low sequence homology to known allergens.
 
-This package will implement just a simple analysis of a csv file with expression data (samples on the columns, genes on the rows) and summarize (average) the data per row.
+## 2. Goals
+* **Primary Goal:** To classify an input amino acid sequence as "Allergenic" or "Non-Allergenic" with >80% accuracy.
+* **Secondary Goal:** To identify which physicochemical features (hydrophobicity vs. charge) contribute most to the prediction.
 
-## Main use case
-
-User will install the package, then import the analysis module and then run the summarize function and get the output in the csv format, rows are genes and the one column is the average for the gene from the data from all the samples.
+## 3. System Features
+1.  **Data Input:** The system shall accept protein sequences in FASTA format or raw text strings.
+2.  **Feature Extraction:** The system shall calculate numerical physicochemical properties (e.g., GRAVY score, Isoelectric Point) for every input sequence.
+3.  **Prediction:** The system shall output a binary classification (Allergen/Non-Allergen) and a probability score for the input.
+4.  **Training Interface:** The system shall allow retraining of the underlying model using new CSV datasets from IEDB or UniProt.
