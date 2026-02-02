@@ -7,7 +7,7 @@ The **ML-Allergen-Predictor** is a machine learning-based bioinformatics tool de
 * **Primary Goal:** To classify an input amino acid sequence as "Allergenic" or "Non-Allergenic" with >80% accuracy.
 * **Secondary Goal:** To identify which physicochemical features (hydrophobicity vs. charge) contribute most to the prediction.
 
-## 3. System Features
+## 3. System Features and Use Cases
 1.  **Data Input:** The system shall accept protein sequences in FASTA format or raw text strings.
 2.  **Feature Extraction:** The system shall calculate numerical physicochemical properties (e.g., GRAVY score, Isoelectric Point) for every input sequence.
 3.  **Prediction:** The system shall output a binary classification (Allergen/Non-Allergen) and a probability score for the input.
