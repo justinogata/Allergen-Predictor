@@ -8,10 +8,8 @@ The Allergen-Predictor is a machine learning classifier designed to assess the a
 
 ## Input
 * **Training Data for the model:**
-    * `positives.csv`: A list of confirmed allergen sequences from Immune Epitope Database (IEDB)
-    * `negatives.csv`: A list of non-allergenic protein sequences from UniProt
-* **User Input:**
-    * `query.fasta`: The amino acid sequence of the new protein you want to test
+    * `IEDB_positive.csv`: A list of confirmed allergen sequences from Immune Epitope Database (IEDB)
+    * `UniProt_negative.fasta`: A list of non-allergenic protein sequences from UniProt
 
 ## Output
 * **Format:** Prediction Score.
