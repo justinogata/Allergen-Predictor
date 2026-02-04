@@ -1,7 +1,7 @@
 # Specification document for the Allergen Predictor Project
 
 ## 1. Project Overview
-The **ML-Allergen-Predictor** is a machine learning-based bioinformatics tool designed to assess the allergenic potential of novel protein sequences. Unlike alignment-based methods (e.g., BLAST) that look for exact sequence matches, this tool predicts allergenicity based on physicochemical properties (hydrophobicity, molecular weight, isoelectric point), allowing it to identify potential risks in novel proteins with low sequence homology to known allergens.
+The **Allergen-Predictor** is a machine learning-based bioinformatics tool designed to assess the allergenic potential of novel protein sequences. Unlike alignment-based methods (e.g., BLAST) that look for exact sequence matches, this tool predicts allergenicity based on physicochemical properties (hydrophobicity, molecular weight, isoelectric point), allowing it to identify potential risks in novel proteins with low sequence homology to known allergens.
 
 ## 2. Goals
 * **Primary Goal:** To classify an input amino acid sequence as "Allergenic" or "Non-Allergenic" with >80% accuracy.
