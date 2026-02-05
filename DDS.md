@@ -11,11 +11,11 @@ The project is divided into four modules:
 ### Module 1: `data_loader`
 * **Scope:** Handles reading raw files (CSV, FASTA) and cleaning the data.
 * **Content:** Functions to parse IEDB CSVs, read FASTA files, and remove sequences with invalid characters.
-* **Connections:** Passes cleaned lists of strings to the `feature_extractor`.
+* **Connections:** Passes cleaned lists of strings as input to the `feature_extractor`.
 
 ### Module 2: `feature_extractor`
-* **Scope:** The mathematical engine of the project.
-* **Content:** Functions to calculate physicochemical properties (GRAVY, Molecular Weight, Isoelectric Point) using Biopython.
+* **Scope:** The mathematical calculator of the project.
+* **Content:** Functions to calculate the numerical format of the properties (GRAVY, Molecular Weight, Isoelectric Point) using Biopython.
 * **Connections:** Receives strings from `data_loader`, outputs a Pandas DataFrame of numbers to `model_trainer`.
 
 ### Module 3: `model_trainer`
