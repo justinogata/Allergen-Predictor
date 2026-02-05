@@ -5,22 +5,22 @@ To train the classifier, we require two distinct classes of data:
 
 ### Positive Class (Allergens)
 * **Source:** Immune Epitope Database (IEDB).
-* **Content:** Validated linear B-cell epitopes known to induce allergic reactions in humans.
-* **Format:** CSV export containing epitope sequences, source organism, and assay results.
+* **Content:** Linear peptide B-Cell epitopes known for inducing allergic reactions in humans.
+* **Format:** CSV containing epitope sequences, the source organism, and assay results.
 * **Size:** 10,858 unique epitope sequences.
 
 ### Negative Class (Non-Allergens)
 * **Source:** UniProt (Swiss-Prot).
 * **Content:** Reviewed human proteins explicitly *not* annotated with the keyword "Allergen."
 * **Format:** FASTA file.
-* **Size:** 573,620 available sequences (will be downsampled to match the positive class size).
+* **Size:** 573,620 sequences (These will be decreased to match the positive class size).
 
 ## 2. Data Validation & Preprocessing
 * **Length Filter:** Both datasets will be filtered to include only sequences between 10 and 50 amino acids to ensure comparability.
 * **Ambiguity Removal:** Sequences containing non-standard amino acid codes (B, J, Z, X) will be removed to prevent calculation errors.
 
-## 3. Development Subset (Small Data)
-For the initial development phase, we will use a **Subset Dataset** to ensure code efficiency:
-* **subset_positives.csv:** The first 50 rows of the IEDB export.
-* **subset_negatives.fasta:** The first 50 entries from the UniProt download.
-This small dataset allows for rapid testing of the feature extraction functions without long processing times.
+## 3. Development data (Small)
+For the development phase, we will use a **Subset Dataset** to ensure code efficiency:
+* **subset_positives.csv:** The first 50 rows of the IEDB sequences.
+* **subset_negatives.fasta:** The first 50 entries from the UniProt sequences.
+This small dataset allows for rapid testing of the feature extraction functions to avoid long processing times.
