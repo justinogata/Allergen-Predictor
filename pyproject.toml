@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "allergen_predictor"
+version = "0.0.1"
+description = "A ML tool to predict allergenicity of proteins"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["biopython", "pandas", "scikit-learn"]
