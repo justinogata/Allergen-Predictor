@@ -23,6 +23,36 @@ def calculate_hydrophobicity(sequence):
     
     return gravy_score
 
+# def calculate_molecular_weight(sequence):
+    """
+    Calculates the molecular weight of the protein sequence.
+    
+    Args:
+        sequence (str): The amino acid sequence.
+        
+    Returns:
+        float: The molecular weight in Daltons.
+    """
+    
+    
+# def calculate_isoelectric_point(sequence)
+    """
+    Calculates the Isoelectric Point (pI) of a protein sequence.
+    This is the pH at which the protein carries no net electrical charge.
+    """
+
+# def calculate_aromaticity(sequence):
+    """
+    Calculates the fraction of amino acids that are aromatic. High aromaticity often 
+    correlates with protein stability.
+    """
+
+# def calculate_instability_index(sequence):
+    """
+    Calculates the Instability Index. 
+    Values < 40 indicate the protein is likely stable (common in allergens).
+    Values > 40 indicate the protein is likely unstable.
+    """
 
 # Test block to prove it runs
 if __name__ == "__main__":
