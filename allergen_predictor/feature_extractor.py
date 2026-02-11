@@ -23,7 +23,7 @@ def calculate_hydrophobicity(sequence):
     
     return gravy_score
 
-# def calculate_molecular_weight(sequence):
+def calculate_molecular_weight(sequence):
     """
     Calculates the molecular weight of the protein sequence.
     
@@ -33,29 +33,40 @@ def calculate_hydrophobicity(sequence):
     Returns:
         float: The molecular weight in Daltons.
     """
+    analyzed_seq = ProteinAnalysis(sequence)
+    return analyzed_seq.molecular_weight()
     
-    
-# def calculate_isoelectric_point(sequence)
+def calculate_isoelectric_point(sequence)
     """
     Calculates the Isoelectric Point (pI) of a protein sequence.
     This is the pH at which the protein carries no net electrical charge.
     """
+    analyzed_seq = ProteinAnalysis(sequence)
+    return analyzed_seq.isoelectric_point()
 
-# def calculate_aromaticity(sequence):
+def calculate_aromaticity(sequence):
     """
     Calculates the fraction of amino acids that are aromatic. High aromaticity often 
     correlates with protein stability.
     """
+    analyzed_seq = ProteinAnalysis(sequence)
+    return analyzed_seq.aromaticity()
 
-# def calculate_instability_index(sequence):
+def calculate_instability_index(sequence):
     """
     Calculates the Instability Index. 
     Values < 40 indicate the protein is likely stable (common in allergens).
     Values > 40 indicate the protein is likely unstable.
     """
+    analyzed_seq = ProteinAnalysis(sequence)
+    return analyzed_seq.instability_index()
 
 # Test block to prove it runs
 if __name__ == "__main__":
     test_seq = "RCTKLEYDPRCVYDP" # test epitope sequence of Arachis hypogaea (peanut)
     print(f"Test Sequence: {test_seq}")
     print(f"Hydrophobicity: {calculate_hydrophobicity(test_seq)}")
+    print(f"Molecular Weight: {calculate_molecular_weight(test_seq)}")
+    print(f"Isoelectric Point: {calculate_isoelectric_point(test_seq)}")
+    print(f"Aromaticity: {calculate_aromaticity(test_seq)}")
+    print(f"Instability Index: {calculate_instability_index(test_seq)}")
