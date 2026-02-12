@@ -15,13 +15,15 @@ def calculate_hydrophobicity(sequence):
     Returns:
         float: The calculated hydrophobicity score.
     """
-    # Create a ProteinAnalysis object using Biopython
-    analyzed_seq = ProteinAnalysis(sequence)
-    
-    # Calculate GRAVY score
-    gravy_score = analyzed_seq.gravy()
-    
-    return gravy_score
+    if not sequence or len(sequence) == 0:
+        return 0.0
+        
+    try:
+        analyzed_seq = ProteinAnalysis(sequence)
+        return analyzed_seq.gravy()
+    except (ValueError, KeyError, ZeroDivisionError):
+        # Handle Invalid Characters
+        return 0.0
 
 def calculate_molecular_weight(sequence):
     """
@@ -33,24 +35,42 @@ def calculate_molecular_weight(sequence):
     Returns:
         float: The molecular weight in Daltons.
     """
-    analyzed_seq = ProteinAnalysis(sequence)
-    return analyzed_seq.molecular_weight()
+    if not sequence:
+        return 0.0
+        
+    try:
+        analyzed_seq = ProteinAnalysis(sequence)
+        return analyzed_seq.molecular_weight()
+    except (ValueError, KeyError):
+        return 0.0
     
-def calculate_isoelectric_point(sequence)
+def calculate_isoelectric_point(sequence):
     """
     Calculates the Isoelectric Point (pI) of a protein sequence.
     This is the pH at which the protein carries no net electrical charge.
     """
-    analyzed_seq = ProteinAnalysis(sequence)
-    return analyzed_seq.isoelectric_point()
+    if not sequence:
+        return 0.0
+        
+    try:
+        analyzed_seq = ProteinAnalysis(sequence)
+        return analyzed_seq.isoelectric_point()
+    except (ValueError, KeyError):
+        return 0.0
 
 def calculate_aromaticity(sequence):
     """
     Calculates the fraction of amino acids that are aromatic. High aromaticity often 
     correlates with protein stability.
     """
-    analyzed_seq = ProteinAnalysis(sequence)
-    return analyzed_seq.aromaticity()
+    if not sequence:
+        return 0.0
+        
+    try:
+        analyzed_seq = ProteinAnalysis(sequence)
+        return analyzed_seq.aromaticity()
+    except (ValueError, KeyError):
+        return 0.0
 
 def calculate_instability_index(sequence):
     """
@@ -58,8 +78,14 @@ def calculate_instability_index(sequence):
     Values < 40 indicate the protein is likely stable (common in allergens).
     Values > 40 indicate the protein is likely unstable.
     """
-    analyzed_seq = ProteinAnalysis(sequence)
-    return analyzed_seq.instability_index()
+    if not sequence:
+        return 0.0
+        
+    try:
+        analyzed_seq = ProteinAnalysis(sequence)
+        return analyzed_seq.instability_index()
+    except (ValueError, KeyError, ZeroDivisionError):
+        return 0.0
 
 # Test block to prove it runs
 if __name__ == "__main__":
