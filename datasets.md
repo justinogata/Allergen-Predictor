@@ -8,12 +8,14 @@ To train the classifier, we require two distinct classes of data:
 * **Content:** Linear peptide B-Cell epitopes known for inducing allergic reactions in humans.
 * **Format:** CSV containing epitope sequences, the source organism, and assay results.
 * **Size:** 10,858 unique epitope sequences.
+* **Link:** https://www.iedb.org/result_v3.php?cookie_id=61ee31
 
 ### Negative Class (Non-Allergens)
 * **Source:** UniProt (Swiss-Prot).
 * **Content:** Reviewed human proteins explicitly *not* annotated with the keyword "Allergen."
 * **Format:** FASTA file.
 * **Size:** 573,620 sequences (These will be decreased to match the positive class size).
+* **Link:** https://www.uniprot.org/uniprotkb?query=reviewed%3Atrue+AND+NOT+keyword%3Aallergen
 
 ## 2. Data Validation & Preprocessing
 * **Length Filter:** Both datasets will be filtered to include only sequences between 10 and 50 amino acids to ensure comparability.
