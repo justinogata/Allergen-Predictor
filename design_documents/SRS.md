@@ -4,7 +4,7 @@
 The **Allergen-Predictor** is a machine learning-based bioinformatics tool designed to assess the allergenic potential of novel protein sequences. Unlike alignment-based methods that look for exact sequence matches, this tool predicts allergenicity based on specific properties (hydrophobicity, molecular weight, isoelectric point), allowing it to identify potential risks in novel proteins with low sequence similarity to known allergens.
 
 ## 2. Goals
-* **Primary Goal:** To classify an input amino acid sequence as "Allergenic" or "Non-Allergenic" with >80% accuracy.
+* **Primary Goal:** To classify an input amino acid sequence as "Allergenic" or "Non-Allergenic". Because biological datasets are heavily imbalanced, performance will be evaluated beyond simple accuracy (>80%) by utilizing robust metrics including F1-Score, AUROC, and Out-of-Bag (OOB) error to ensure true allergens are accurately identified without excessive false positives.
 * **Secondary Goal:** To identify which features/properties (hydrophobicity vs. charge) contribute most to the prediction.
 
 ## 3. System Features and Use Cases
