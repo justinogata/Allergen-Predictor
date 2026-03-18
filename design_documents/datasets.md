@@ -21,8 +21,5 @@ To train the classifier, we require two distinct classes of data:
 * **Length Filter:** Both datasets will be filtered to include only sequences between 10 and 50 amino acids to ensure comparability.
 * **Ambiguity Removal:** Sequences containing non-standard amino acid codes (B, J, Z, X) will be removed to prevent calculation errors.
 
-## 3. Development data (Small)
-For the development phase, we will use a **Subset Dataset** to ensure code efficiency:
-* **subset_positives.csv:** The first 50 rows of the IEDB sequences.
-* **subset_negatives.fasta:** The first 50 entries from the UniProt sequences.
-This small dataset allows for rapid testing of the feature extraction functions to avoid long processing times.
+### Example dataset for using the tool.
+For demonstrating and testing the Allergen-Predictor, I am using a subset dataset located in the repository's `data/` folder. This dataset consists of two files: `subset_positives.csv` (containing the first 50 rows from the IEDB database) and `subset_negatives.fasta` (containing the first 50 rows from the UniProt sequences, filtered to avoid close homologs). These files are a small section of the full database inputs, making their structure identical to the full dataset files and requiring the exact same CSV and FASTA parsing logic. This is an ideal example dataset to run the tool on because its compact size of ~1.3Mb, which is < 20Mb. This allows users to rapidly execute the complete "happy path" from data loading and sequence validation to physiochemical feature extraction without experiencing the heavy computational processing times associated with the full biological datasets.
