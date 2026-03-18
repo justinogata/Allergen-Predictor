@@ -92,3 +92,21 @@
     * **Sub-action:** Pass the user's string through `feature_extractor.py`, then pass those numbers to the loaded model.
     * **Deliverable:** A printed statement to the console: "Prediction: Allergen (X% Confidence)".
     * **Completion Criteria:** Running the command on a known allergen sequence returns "Allergen".
+
+---
+
+## Activity 5: Package Demonstration and Documentation
+**Goal:** Create a clear, runnable demonstration and tutorial to show end-users how to use the Allergen-Predictor package from start to finish.
+
+### Tasks:
+1.  **Task 5.1: Write a tutorial/vignette document**
+    * **Action:** Create a Jupyter Notebook detailing the "happy path" of the package.
+    * **Sub-action:** Write markdown explanations alongside Python code cells that guide a user through loading the example dataset and extracting sequence features.
+    * **Deliverable:** A completed Jupyter Notebook (e.g., `allergen_demo.ipynb`) saved in the `tutorials` folder.
+    * **Completion Criteria:** The notebook runs from top to bottom without any errors using the provided example data.
+
+2.  **Task 5.2: Create a demo for the package**
+    * **Action:** Build a final, runnable demonstration of the predictive model.
+    * **Sub-action:** Ensure the main script or CLI can take a novel protein sequence, process it through the pipeline, and output a prediction.
+    * **Deliverable:** A functional demo script or interactive notebook block.
+    * **Completion Criteria:** A user can input a sample sequence and successfully receive a clear "Allergen" or "Non-Allergen" classification.
