@@ -28,8 +28,5 @@ def extract_all_features(sequence):
         'Gravy': analysis.gravy()
     }
     
-    # If you need secondary structure fractions, you can unpack them like this:
-    # helix, turn, sheet = analysis.secondary_structure_fraction()
-    # features['sec_struct_helix'] = helix
     
     return physicochemical_features
