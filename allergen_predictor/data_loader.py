@@ -35,19 +35,23 @@ def _validate_sequences(sequences):
     #           - sequence length is less than 5 or greater than 100 amino acids
     #           - sequence contains invalid amino acid characters 
     for seq in unique_seqs:
-        seq = str(seq).upper()
+        seq = str(seq).strip().upper()
         
-        #check sequence length constraint (between 5 and 100 AA)
-        if len(seq) < 5 or len(seq) > 100: 
-            raise ValueError(f"Length Error: Sequence '{seq}' is {len(seq)} AA long. Must be between 5 and 100 AA.")
+        try:
+            #check sequence length constraint (between 5 and 100 AA)
+            if len(seq) < 5 or len(seq) > 100:
+                raise ValueError(f"Length Error: Sequence is {len(seq)} AA long.")
+                
+            #check for invalid amino acid characters
+            invalid_chars = set(seq) - valid_aa
+            if invalid_chars:
+                raise ValueError(f"Character Error: Sequence contains {invalid_chars}.")
+                
+            validated.append(seq)
             
-        #check for invalid amino acid characters
-        invalid_chars = set(seq) - valid_aa
-        if invalid_chars:
-            raise ValueError(f"Character Error: Sequence '{seq}' contains invalid characters {invalid_chars}.")
+        except ValueError as e:
+            continue
             
-        validated.append(seq)
-        
     return validated
 
 def load_positive_data(file_path):
