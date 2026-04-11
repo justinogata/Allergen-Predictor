@@ -89,7 +89,7 @@ def main():
         n_estimators=100, 
         random_state=42, 
         oob_score=True,
-        class_weight='balanced' # An extra safety net for imbalanced data!
+        class_weight='balanced' 
     )
     clf.fit(X_train, y_train)
 
