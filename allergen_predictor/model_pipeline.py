@@ -66,24 +66,24 @@ def plot_feature_importance(clf, feature_names):
     plt.show()
 
 def main():
-    # 1. Load the data
+    # Load in data
     dataset_path = "data/master_dataset.csv"
     model_save_path = "data/allergen_rf_model.pkl"
     
     print(f"Loading dataset from {dataset_path}")
     df = pd.read_csv(dataset_path)
     
-    # 2. Separate Features (X) and Labels (y)
+    # Separate Features (X) and Labels (y)
     # We drop 'Label' to get features, and use 'Label' as our target
     X = df.drop(columns=['Label'])
     y = df['Label']
     feature_names = X.columns.tolist()
 
-    # 3. Train/Test Split (80% training, 20% testing)
+    # Train/Test Split (80% training, 20% testing)
     print("Splitting data into 80% training and 20% testing")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # 4. Initialize and Train the Model
+    # Initialize and train the Model
     print("Training the Random Forest Classifier")
     clf = RandomForestClassifier(
         n_estimators=100, 
@@ -93,13 +93,13 @@ def main():
     )
     clf.fit(X_train, y_train)
 
-    # 5. Evaluate the Model (Prints metrics and shows charts)
+    # Evaluate the Model (Prints metrics and shows charts)
     evaluate_allergen_model(clf, X_test, y_test)
     
-    # 6. Plot Feature Importance
+    # Plot Feature Importance
     plot_feature_importance(clf, feature_names)
 
-    # 7. Save the trained model to disk
+    # Save the trained model to disk
     os.makedirs(os.path.dirname(model_save_path), exist_ok=True)
     joblib.dump(clf, model_save_path)
     print(f"Model saved to: {model_save_path}")
