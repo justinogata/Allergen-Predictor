@@ -10,7 +10,7 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
     print("Initiating Batch Feature Extraction...")
     print("-" * 40)
     
-    # 1. Load the raw sequences
+    # Load the raw sequences
     print(f"Loading Positive Data from: {pos_file_path}")
     pos_seqs = load_positive_data(pos_file_path)
     
@@ -20,7 +20,7 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
     
     master_dataset = []
 
-    # 2. Process Positive Sequences (Allergens)
+    # Process Positive Sequences (Allergens)
     print(f"\nExtracting features for {len(pos_seqs)} positive sequences...")
     for i, seq in enumerate(pos_seqs):
         features = extract_all_features(seq)
@@ -31,7 +31,7 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
         if (i + 1) % 100 == 0:
             print(f"  [+] Processed {i + 1} / {len(pos_seqs)} allergens")
 
-    # 3. Process Negative Sequences (Non-Allergens)
+    # Process Negative Sequences (Non-Allergens)
     print(f"\nExtracting features for {len(neg_seqs)} negative sequences...")
     for i, seq in enumerate(neg_seqs):
         features = extract_all_features(seq)
@@ -42,7 +42,7 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
         if (i + 1) % 500 == 0:
             print(f"  [-] Processed {i + 1} / {len(neg_seqs)} non-allergens")
 
-    # 4. Save to CSV
+    # Save to CSV
     print("\nFormatting matrix and saving to CSV...")
     df = pd.DataFrame(master_dataset)
     
