@@ -21,11 +21,11 @@ def extract_all_features(sequence):
     
     # Extract all properties
     physicochemical_features = {
-        'Molecular weight': analysis.molecular_weight(),
-        'Isoelectric point': analysis.isoelectric_point(),
-        'Instability index': analysis.instability_index(),
-        'Aromaticity': analysis.aromaticity(),
-        'Gravy': analysis.gravy()
+        'Molecular weight': analysis.molecular_weight(),   # Weight
+        'Isoelectric point': analysis.isoelectric_point(), # Net pH charge is zero
+        'Instability index': analysis.instability_index(), # Structural stability
+        'Aromaticity': analysis.aromaticity(),             # Frequency of aromatic amino acids
+        'Gravy': analysis.gravy()                          # Hydrophobicity
     }
     
     
