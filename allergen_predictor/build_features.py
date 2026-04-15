@@ -57,8 +57,8 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
 
 if __name__ == '__main__':
     
-    POSITIVE_DATA_FILE = "data/IEDB_positive.csv" 
-    NEGATIVE_DATA_FILE = "data/UniProt_filtered.fasta" 
+    POSITIVE_DATA_FILE = "IEDB_positive.csv" 
+    NEGATIVE_DATA_FILE = "UniProt_filtered.fasta" 
     
     # The file this script will generate
     OUTPUT_CSV_FILE = "data/master_dataset.csv"  
