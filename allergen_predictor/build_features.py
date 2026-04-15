@@ -7,7 +7,7 @@ from feature_extractor import extract_all_features
 #cd-hit -i UniProt_negative.fasta -o UniProt_filtered.fasta -c 0.8 -n 5
 
 def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_size):
-    print("Initiating Batch Feature Extraction...")
+    print("Initiating Batch Feature Extraction")
     print("-" * 40)
     
     # Load the raw sequences
@@ -21,7 +21,7 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
     master_dataset = []
 
     # Process Positive Sequences (Allergens)
-    print(f"\nExtracting features for {len(pos_seqs)} positive sequences...")
+    print(f"\nExtracting features for {len(pos_seqs)} positive sequences.")
     for i, seq in enumerate(pos_seqs):
         features = extract_all_features(seq)
         features['Label'] = 1  # 1 = Allergen
@@ -32,7 +32,7 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
             print(f"  [+] Processed {i + 1} / {len(pos_seqs)} allergens")
 
     # Process Negative Sequences (Non-Allergens)
-    print(f"\nExtracting features for {len(neg_seqs)} negative sequences...")
+    print(f"\nExtracting features for {len(neg_seqs)} negative sequences")
     for i, seq in enumerate(neg_seqs):
         features = extract_all_features(seq)
         features['Label'] = 0  # 0 = Non-Allergen
@@ -58,14 +58,13 @@ def create_master_dataset(pos_file_path, neg_file_path, output_path, neg_sample_
 if __name__ == '__main__':
     
     POSITIVE_DATA_FILE = "IEDB_positive.csv" 
-    NEGATIVE_DATA_FILE = "UniProt_filtered.fasta" # Replace with your CD-HIT filtered file if you have it!
+    NEGATIVE_DATA_FILE = "UniProt_filtered.fasta" 
     
     # The file this script will generate
     OUTPUT_CSV_FILE = "data/master_dataset.csv"  
     
     # How many negative sequences to pull. 
-    # (Update this number to match the actual number of sequences in your filtered file)
-    NEGATIVE_SAMPLE_SIZE = 5000 
+    NEGATIVE_SAMPLE_SIZE = 21500 
     
     create_master_dataset(
         pos_file_path=POSITIVE_DATA_FILE, 
