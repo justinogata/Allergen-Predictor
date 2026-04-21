@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 
 # Import feature extractor
 try:
-    from allergen_predictor.feature_extractor import extract_all_features
+    from feature_extractor import extract_all_features
 except ModuleNotFoundError:
     print("Error: Could not find the 'allergen_predictor' module.")
     print("Ensure you are running this script from the root directory of the project.")
